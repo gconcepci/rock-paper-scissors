@@ -1,61 +1,121 @@
 const cards = document.querySelectorAll(".card");
-const choices = ["rock", "paper", "scissors"];
-const results = document.querySelector(".results");
+const choices = ["Rock", "Paper", "Scissors"];
+const results = document.querySelectorAll(".result");
+const playerRock = document.querySelector(".rock");
+const playerPaper = document.querySelector(".paper");
+const playerScissors = document.querySelector(".scissors");
+const playerCards = [playerRock,playerPaper,playerScissors];
+let playerScore = 0;
+let computerScore = 0;
 
-function displayResult(text) {
-    let p = document.createElement("p");
-    p.textContent = text;
-    results.appendChild(p)
+playerCards.forEach(card => {
+    card.addEventListener("click", playRound)
+})
+
+function playerSelect() {
+    let playerChoice =  this.dataset.choice;
+    results[0].textContent = `Player played ${playerChoice}.`
+    console.log(playerChoice);
+    return playerChoice;
 }
 
 function computerSelect() {
     let randInt = Math.floor(Math.random() * choices.length);
     let choice = choices[randInt];
-    displayResult(`Computer played ${choice}!`);
+    results[1].textContent = `Computer played ${choice}.`
+    console.log(choice)
     return choice;
 }
 
-let playerChoice = function playerSelect() {
-    let choice = this.dataset.choice;
-    displayResult(`Player played ${choice}!`);
-    return choice
+function displayResult(player,computer, msg="") {
+    results[0].textContent = `Player played ${player}.`
+    results[1].textContent = `Computer played ${computer}.`
+    results[2].textContent = msg;
 }
 
-let round = function playRound(playerChoice) {
+function playRound() {
+    let result = results[2];
+    let playerChoice = this.dataset.choice;
+    console.log(playerChoice)
     let computerChoice = computerSelect();
-    let playerWin = `Player wins! ${playerChoice} beats ${computerChoice}!`;
-    let computerWin = `Computer wins! ${computerChoice} beats ${playerChoice}!`;
+    let draw = "Thats a draw!";
+    let playerWin = `${playerChoice} beats ${computerChoice}! Player gets 1 point!`;
+    let computerWin = `${computerChoice} beats ${playerChoice}! Computer gets 1 point!`;
+
     
 
     if (playerChoice === computerChoice) {
-        return "That is a DRAW!"
-    } else if (playerChoice === "rock") {
-        if (computerChoice === "paper") {
+        displayResult(playerChoice,computerChoice,draw);
+    } else if (playerChoice === "Rock") {
+        if (computerChoice === "Paper") {
             computerScore++
-            console.log(computerWin);
+            displayResult(playerChoice,computerChoice,computerWin);
         }
         else {
             playerScore++
-            return playerWin;
+            displayResult(playerChoice,computerChoice,playerWin);
         }
-    } else if (playerChoice === "paper") {
-        if (computerChoice === "scissors") {
+    } else if (playerChoice === "Paper") {
+        if (computerChoice === "Scissors") {
             computerScore++
-            return computerWin; 
+            displayResult(playerChoice,computerChoice,computerWin); 
         }
         else {
             playerScore++
-            return playerWin;
+            displayResult(playerChoice,computerChoice,playerWin);
         }
-    } else if (playerChoice === "scissors") {
-        if (computerChoice === "rock") {
+    } else if (playerChoice === "Scissors") {
+        if (computerChoice === "Rock") {
             computerScore++
-            return computerWin;
+            displayResult(playerChoice,computerChoice,computerWin);
         }
         else {
             playerScore++
-            return playerWin;
+            displayResult(playerChoice,computerChoice,playerWin);
         } 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

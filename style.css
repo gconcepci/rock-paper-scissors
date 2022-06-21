@@ -25,13 +25,14 @@ h1 {
     flex-wrap: wrap;
 }
 
-.results p {
+.results p, .results li {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
 }
 
-.results p:nth-of-type(3){
-    font-size: 30px;
+.results ul li{
+    list-style-type: none;
+    font-size: 22px;
 }
 
 
@@ -54,7 +55,7 @@ button {
     width: 100px;
 }
 
-.cards{
+.cards, .computer-cards{
     display:flex;
     gap: 20px;
     border: 2px solid black;
@@ -62,7 +63,11 @@ button {
     border-radius: 10px;
 }
 
-.card {
+.cards .player-card button:hover{
+    cursor: pointer;
+}
+
+.player-card, .computer-card {
     display: flex;
     flex-direction: column;
     align-items: center;

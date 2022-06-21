@@ -13,35 +13,39 @@
     <div class="results">
         <p class="score">Player Score: 0</p>
         <p class="score">Computer Score: 0</p>
-        <p class="round-results">Computer Plays paper<br>Player plays rock<br>Player gets one point!</p>
+        <ul class="round-results">
+            <li class="result"></li>
+            <li class="result"></li>
+            <li class="result"></li>
+        </ul>
     </div>
 
     <div class="container">
         <div class="cards">
-            <div data-choice="rock" class="card">
+            <div data-choice="Rock" class="player-card rock">
                 <img src="./rock.png" alt="rock">
                 <button class="rock">Rock</button>
             </div>
-            <div data-choice="paper" class="card">
+            <div data-choice="Paper" class="player-card paper">
                 <img src="./paper.png" alt="paper">
                 <button class="paper">Paper</button>
             </div>
-            <div data-choice="scissors" class="card">
+            <div data-choice="Scissors" class="player-card scissors">
                 <img src="./scissors.png" alt="scissors">
                 <button class="scissors">Scissors</button>
             </div>
         </div>
 
-        <div class="cards">
-            <div data-choice="computer-rock" class="card">
+        <div class="computer-cards">
+            <div data-choice="computer-rock" class="computer-card">
                 <img src="./rock.png" alt="rock">
                 <button class="computer-rock">Rock</button>
             </div>
-            <div data-choice="computer-paper" class="card">
+            <div data-choice="computer-paper" class="computer-card">
                 <img src="./paper.png" alt="paper">
                 <button class="computer-paper">Paper</button>
             </div>
-            <div data-choice="computer-scissors" class="card">
+            <div data-choice="computer-scissors" class="computer-card">
                 <img src="./scissors.png" alt="scissors">
                 <button class="computer-scissors">Scissors</button>
             </div>
