@@ -5,8 +5,12 @@ const playerRock = document.querySelector(".rock");
 const playerPaper = document.querySelector(".paper");
 const playerScissors = document.querySelector(".scissors");
 const playerCards = [playerRock,playerPaper,playerScissors];
+const playerScoreElement = document.querySelector(".player-score");
+const computerScoreElement = document.querySelector(".computer-score");
 let playerScore = 0;
 let computerScore = 0;
+playerScoreElement.textContent = playerScore;
+computerScoreElement.textContent = computerScore;
 
 playerCards.forEach(card => {
     card.addEventListener("click", playRound)
@@ -42,35 +46,39 @@ function playRound() {
     let playerWin = `${playerChoice} beats ${computerChoice}! Player gets 1 point!`;
     let computerWin = `${computerChoice} beats ${playerChoice}! Computer gets 1 point!`;
 
-    
-
     if (playerChoice === computerChoice) {
         displayResult(playerChoice,computerChoice,draw);
     } else if (playerChoice === "Rock") {
         if (computerChoice === "Paper") {
             computerScore++
+            computerScoreElement.textContent = computerScore;
             displayResult(playerChoice,computerChoice,computerWin);
         }
         else {
             playerScore++
+            playerScoreElement.textContent = playerScore;
             displayResult(playerChoice,computerChoice,playerWin);
         }
     } else if (playerChoice === "Paper") {
         if (computerChoice === "Scissors") {
             computerScore++
+            computerScoreElement.textContent = computerScore;
             displayResult(playerChoice,computerChoice,computerWin); 
         }
         else {
             playerScore++
+            playerScoreElement.textContent = playerScore;
             displayResult(playerChoice,computerChoice,playerWin);
         }
     } else if (playerChoice === "Scissors") {
         if (computerChoice === "Rock") {
             computerScore++
+            computerScoreElement.textContent = computerScore;
             displayResult(playerChoice,computerChoice,computerWin);
         }
         else {
             playerScore++
+            playerScoreElement.textContent = playerScore;
             displayResult(playerChoice,computerChoice,playerWin);
         } 
     }
