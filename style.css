@@ -4,9 +4,6 @@
     padding: 0;
 }
 
-body{
-    height: 100%;
-}
 
 h1 {
     margin-top: 20px;
@@ -16,29 +13,53 @@ h1 {
 }
 
 .results {
-    height: 250px;
+    height:350px;
     width: 500px;
-    background-color:rgba(31, 37, 21, 0.341);
+    background-color:rgba(31, 37, 21, 0.082);
     border: 3px solid rgb(0, 0, 0);
+    border-radius: 5px;
     margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    flex-wrap: wrap;
 }
 
+.results p {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.results p:nth-of-type(3){
+    font-size: 30px;
+}
+
+
 .container {
-    margin: 100px 0;
+    margin: 100px auto;
+    width: 60%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 48px;
 }
 img {
-    height: 300px;
-    width: 300px;
+    height: 100px;
+    width: 100px;
     border-radius: 10px;
 }
 
 button {
     font-size: 20px;
-    padding: 10px;
-    width: 120px;
+    padding: 5px;
+    width: 100px;
+}
+
+.cards{
+    display:flex;
+    gap: 20px;
+    border: 2px solid black;
+    padding: 24px;
+    border-radius: 10px;
 }
 
 .card {
