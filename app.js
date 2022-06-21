@@ -7,6 +7,7 @@ const playerScissors = document.querySelector(".scissors");
 const playerCards = [playerRock,playerPaper,playerScissors];
 const playerScoreElement = document.querySelector(".player-score");
 const computerScoreElement = document.querySelector(".computer-score");
+const playAgain = document.querySelector(".play-again");
 let playerScore = 0;
 let computerScore = 0;
 playerScoreElement.textContent = playerScore;
@@ -16,18 +17,14 @@ playerCards.forEach(card => {
     card.addEventListener("click", playRound)
 })
 
-function playerSelect() {
-    let playerChoice =  this.dataset.choice;
-    results[0].textContent = `Player played ${playerChoice}.`
-    console.log(playerChoice);
-    return playerChoice;
-}
+playAgain.addEventListener("click", () => {
+    window.location.reload()
+})
 
 function computerSelect() {
     let randInt = Math.floor(Math.random() * choices.length);
     let choice = choices[randInt];
     results[1].textContent = `Computer played ${choice}.`
-    console.log(choice)
     return choice;
 }
 
@@ -38,9 +35,7 @@ function displayResult(player,computer, msg="") {
 }
 
 function playRound() {
-    let result = results[2];
     let playerChoice = this.dataset.choice;
-    console.log(playerChoice)
     let computerChoice = computerSelect();
     let draw = "Thats a draw!";
     let playerWin = `${playerChoice} beats ${computerChoice}! Player gets 1 point!`;
@@ -81,6 +76,19 @@ function playRound() {
             playerScoreElement.textContent = playerScore;
             displayResult(playerChoice,computerChoice,playerWin);
         } 
+    }
+    if (playerScore === 5) {
+        results[2].textContent = `Game Over! Player wins! `
+        playerCards.forEach(card => {
+            card.removeEventListener("click", playRound);
+        })
+        playAgain.setAttribute("style", "display: block;");
+    } else if (computerScore === 5) {
+        results[2].textContent = `Game Over! Computer wins!`
+        playerCards.forEach(card => {
+            card.removeEventListener("click", playRound);
+        })
+        playAgain.setAttribute("style", "display: block;");
     }
 }
 

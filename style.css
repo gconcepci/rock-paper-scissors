@@ -38,6 +38,10 @@ h1 {
     font-size: 22px;
 }
 
+.play-again {
+    margin: 40px auto;
+    display: none;
+}
 
 .container {
     margin: 100px auto;
